@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<title>Профиль</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(120deg,#89f7fe,#66a6ff);
+}
+
+/* NAVBAR */
+.navbar{
+display:flex;
+justify-content:space-between;
+padding:15px 50px;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+color:orange;
+}
+
+.menu a{
+margin:0 15px;
+text-decoration:none;
+color:gray;
+font-weight:bold;
+}
+
+/* PROFILE BOX */
+
+.profile-box{
+width:350px;
+margin:80px auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+.profile-box h2{
+color:#333;
+}
+
+.profile-box p{
+color:#666;
+font-size:18px;
+}
+
+.logout{
+margin-top:20px;
+padding:12px 25px;
+background:red;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+<div class="logo">KITAP</div>
+
+<div class="menu">
+<a href="index.html">Басты бет</a>
+<a href="profile.html">Профиль</a>
+</div>
+</div>
+
+<div class="profile-box">
+
+<h2>Пайдаланушы профилі</h2>
+
+<p id="userName"></p>
+<p id="userEmail"></p>
+
+<button class="logout" onclick="logout()">Шығу</button>
+
+</div>
+
+<script>
+
+document.getElementById("userName").innerText =
+"Аты: " + localStorage.getItem("userName");
+
+document.getElementById("userEmail").innerText =
+"Email: " + localStorage.getItem("userEmail");
+
+function logout(){
+
+localStorage.clear();
+alert("Аккаунттан шықтыңыз");
+window.location.href="login.html";
+
+}
+
+</script>
+
+</body>
+</html>

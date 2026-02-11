@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<title>Аудиокітаптар</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Segoe UI', Arial;
+background:#f4f7fb;
+}
+
+/* MENU */
+.navbar{
+display:flex;
+justify-content:space-between;
+padding:18px 60px;
+background:white;
+box-shadow:0 4px 15px rgba(0,0,0,0.07);
+}
+
+.logo{
+font-size:24px;
+font-weight:700;
+color:#3f51b5;
+}
+
+.menu a{
+margin:0 15px;
+text-decoration:none;
+color:#555;
+font-weight:600;
+transition:0.3s;
+}
+
+.menu a:hover{
+color:#3f51b5;
+}
+
+/* HEADER */
+.header{
+background:linear-gradient(120deg,#e3f2fd,#ffffff);
+padding:60px;
+text-align:center;
+}
+
+.header h1{
+color:#3f51b5;
+font-size:32px;
+}
+
+/* GRID */
+.container{
+padding:30px 20px;
+max-width:1100px;
+margin:0 auto;
+}
+
+
+
+
+.audios{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+gap:40px;
+}
+
+
+
+
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(12px);
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(0,0,0,0.12);
+transition:0.4s;
+position:relative;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.02);
+box-shadow:0 25px 60px rgba(0,0,0,0.18);
+}
+
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+transition:0.5s;
+}
+
+.card:hover img{
+transform:scale(1.08);
+}
+
+
+
+.card-content{
+padding:12px;
+}
+
+
+
+.card-title{
+font-size:16px;
+font-weight:700;
+margin-bottom:5px;
+}
+
+
+.quote{
+font-size:14px;
+color:#777;
+font-style:italic;
+}
+
+/* BUTTONS */
+.buttons{
+margin-top:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+
+.btn{
+padding:8px 14px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+font-size:13px;
+font-weight:600;
+display:flex;
+align-items:center;
+gap:6px;
+transition:0.3s;
+}
+
+
+
+
+.play{
+background:#3f51b5;
+color:white;
+}
+
+.play:hover{
+background:#2f3fa0;
+transform:translateY(-2px);
+}
+
+
+.stop{
+background:#ef5350;
+color:white;
+}
+
+.stop:hover{
+background:#d32f2f;
+transform:translateY(-2px);
+}
+
+
+.download{
+background:#ff9800;
+color:white;
+}
+
+.download:hover{
+background:#fb8c00;
+transform:translateY(-2px);
+}
+
+
+body.dark{
+background:#121212;
+color:white;
+}
+
+body.dark .navbar{
+background:#1e1e1e;
+}
+
+body.dark .card{
+background:#1f1f1f;
+color:white;
+}
+
+body.dark .menu a{
+color:#ddd;
+}
+
+body.dark .header{
+background:linear-gradient(120deg,#1e1e1e,#121212);
+}
+
+@media(max-width:600px){
+
+.audios{
+grid-template-columns:1fr 1fr;
+}
+
+.card img{
+height:120px;
+}
+
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+<div class="logo">KITAP</div>
+
+<div class="menu">
+<a href="index.html">Басты бет</a>
+<a href="books.html">Кітаптар</a>
+<a href="audio.html">Аудио</a>
+<a href="video.html">Видео</a>
+<button onclick="toggleDark()" style="margin-left:20px;">🌙</button>
+
+</div>
+</div>
+
+<div class="header">
+<h1>Аудиокітаптар</h1>
+</div>
+
+<div style="text-align:center; margin-top:20px;">
+<input type="text" placeholder="Аудио іздеу..." 
+onkeyup="searchAudio(this.value)"
+style="padding:12px; width:260px; border-radius:10px; border:1px solid #ddd;">
+</div>
+
+<div class="container">
+<div class="audios">
+
+<!-- Абай жолы -->
+<div class="card" data-title="абай">
+
+<img src="images/abai.jpg">
+<audio id="audio1" src="audio/abai.mp3"></audio>
+
+<div class="card-content">
+<div class="card-title">Абай жолы</div>
+<div class="quote">"Ғылым таппай мақтанба"</div>
+
+<div class="buttons">
+<button class="btn play" onclick="playAudio('audio1')">▶ Тыңдау</button>
+<button class="btn stop" onclick="stopAudio('audio1')">⏹ Тоқтату</button>
+<a href="audio/abai.mp3" download class="btn download">⬇ Жүктеу</a>
+</div>
+</div>
+</div>
+
+<!-- Көшпенділер -->
+<div class="card" data-title="көшпенділер">
+
+<img src="images/koshpendiler.jpg">
+<audio id="audio2" src="audio/koshpendiler.mp3"></audio>
+
+<div class="card-content">
+<div class="card-title">Көшпенділер</div>
+<div class="quote">"Тарих — халық айнасы"</div>
+
+<div class="buttons">
+<button class="btn play" onclick="playAudio('audio2')">▶ Тыңдау</button>
+<button class="btn stop" onclick="stopAudio('audio2')">⏹ Тоқтату</button>
+<a href="audio/koshpendiler.mp3" download class="btn download">⬇ Жүктеу</a>
+</div>
+</div>
+</div>
+
+<!-- Қожа -->
+<div class="card" data-title="қожа">
+
+<img src="images/kozha.jpg">
+<audio id="audio3" src="audio/kozha.mp3"></audio>
+
+<div class="card-content">
+<div class="card-title">Менің атым Қожа</div>
+<div class="quote">"Балалық — бақыт кезеңі"</div>
+
+<div class="buttons">
+<button class="btn play" onclick="playAudio('audio3')">▶ Тыңдау</button>
+<button class="btn stop" onclick="stopAudio('audio3')">⏹ Тоқтату</button>
+<a href="audio/kozha.mp3" download class="btn download">⬇ Жүктеу</a>
+</div>
+</div>
+</div>
+
+<!-- Ертегілер -->
+<div class="card" data-title="ертегі">
+
+<img src="images/ertegiler.jpg">
+<audio id="audio4" src="audio/ertegiler.mp3"></audio>
+
+<div class="card-content">
+<div class="card-title">Қазақ ертегілері</div>
+<div class="quote">"Ертегі — тәрбиенің бастауы"</div>
+
+<div class="buttons">
+<button class="btn play" onclick="playAudio('audio4')">▶ Тыңдау</button>
+<button class="btn stop" onclick="stopAudio('audio4')">⏹ Тоқтату</button>
+<a href="audio/ertegiler.mp3" download class="btn download">⬇ Жүктеу</a>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<script>
+
+function playAudio(id){
+
+let audios = document.querySelectorAll("audio");
+
+audios.forEach(audio=>{
+audio.pause();
+audio.currentTime = 0;
+});
+
+let selected = document.getElementById(id);
+selected.play();
+
+}
+
+function stopAudio(id){
+let audio = document.getElementById(id);
+audio.pause();
+audio.currentTime = 0;
+}
+
+function searchAudio(text){
+
+text = text.toLowerCase();
+
+document.querySelectorAll(".card").forEach(card=>{
+let title = card.dataset.title;
+
+card.style.display =
+title.includes(text) ? "block" : "none";
+});
+
+}
+function toggleDark(){
+document.body.classList.toggle("dark");
+}
+
+
+</script>
+
+</body>
+</html>

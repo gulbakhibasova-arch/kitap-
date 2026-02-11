@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<title>Тіркелу</title>
+
+<style>
+body{
+font-family: Arial;
+background: linear-gradient(120deg,#ffecd2,#fcb69f);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.form-box{
+background:white;
+padding:40px;
+border-radius:15px;
+box-shadow:0 0 15px rgba(0,0,0,0.2);
+width:300px;
+text-align:center;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+button{
+width:100%;
+padding:12px;
+background:orange;
+border:none;
+color:white;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="form-box">
+
+<h2>Тіркелу</h2>
+
+<form action="register.php" method="POST">
+
+<input name="name" placeholder="Атыңыз" required>
+<input name="email" placeholder="Email" required>
+<input name="password" type="password" placeholder="Пароль" required>
+
+<button type="submit">Тіркелу</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

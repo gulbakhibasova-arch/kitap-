@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<title>Кітап оқу</title>
+
+<style>
+body{
+font-family:Arial;
+margin:0;
+background:#fafafa;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+padding:15px 50px;
+background:white;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+color:orange;
+}
+
+.bookContainer{
+max-width:800px;
+margin:50px auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.bookContainer img{
+width:200px;
+margin-bottom:20px;
+}
+
+.bookText{
+margin-top:20px;
+line-height:1.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+<div class="logo">KITAP</div>
+<a href="books.html">← Артқа</a>
+</div>
+
+<div class="bookContainer">
+
+<h1 class="bookTitle">Кітап</h1>
+
+<img src="">
+
+<div class="bookText"></div>
+
+</div>
+
+<script>
+
+
+
+let params = new URLSearchParams(window.location.search);
+let book = params.get("name");
+
+let title = document.querySelector(".bookTitle");
+let image = document.querySelector(".bookContainer img");
+let text = document.querySelector(".bookText");
+
+
+// АБАЙ
+if(book === "abai"){
+title.innerText = "Абай жолы";
+image.src = "images/abai.jpg";
+text.innerText = "Мұхтар Әуезовтің ұлы шығармасы. Қазақ халқының өмірін сипаттайды.";
+}
+
+
+// КӨШПЕНДІЛЕР
+if(book === "koshpendiler"){
+title.innerText = "Көшпенділер";
+image.src = "images/koshpendiler.jpg";
+text.innerText = "Ілияс Есенберлиннің тарихи романы.";
+}
+
+
+// ҚОЖА
+if(book === "kozha"){
+title.innerText = "Менің атым Қожа";
+image.src = "images/kozha.jpg";
+text.innerText = "Бердібек Соқпақбаевтың балаларға арналған шығармасы.";
+}
+
+
+// ҚАН МЕН ТЕР
+if(book === "kan"){
+title.innerText = "Қан мен тер";
+image.src = "images/kan_men_ter.jpg";
+text.innerText = "Әбдіжәміл Нұрпейісовтің әлеуметтік романы.";
+}
+
+
+// ҰЛПАН
+if(book === "ulpan"){
+title.innerText = "Ұлпан";
+image.src = "images/ulpan.jpg";
+text.innerText = "Ғабит Мүсіреповтің тарихи шығармасы.";
+}
+
+
+// АҚБІЛЕК
+if(book === "akbilek"){
+title.innerText = "Ақбілек";
+image.src = "images/akbilek.jpg";
+text.innerText = "Жүсіпбек Аймауытовтың психологиялық романы.";
+}
+
+
+// ЕРТЕГІЛЕР
+if(book === "ertegiler"){
+title.innerText = "Ертегілер әлемі";
+image.src = "images/ertegiler.jpg";
+text.innerText = "Балаларға арналған қазақ халық ертегілері.";
+}
+
+
+// ҚЫЗ ЖІБЕК
+if(book === "kyz"){
+title.innerText = "Қыз Жібек";
+image.src = "images/kyz_zhibek.jpg";
+text.innerText = "Қазақтың лиро-эпостық жыры.";
+}
+
+
+
+
+</script>
+
+</body>
+</html>
+
+
+

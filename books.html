@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<title>Кітаптар</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#faf7ef;
+}
+
+/* NAVBAR */
+.navbar{
+display:flex;
+justify-content:space-between;
+padding:20px 50px;
+background:linear-gradient(45deg,#6d4c41,#5d4037);
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+color:#ffcc80;
+}
+
+.menu a{
+margin-left:20px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+/* HEADER */
+.header{
+background:linear-gradient(120deg,#8d6e63,#5d4037);
+padding:60px;
+text-align:center;
+color:white;
+}
+
+.search input{
+padding:12px 25px;
+border-radius:25px;
+border:none;
+width:300px;
+}
+
+/* MAIN */
+.container{
+padding:50px;
+}
+
+.page{
+display:flex;
+gap:40px;
+}
+
+/* SIDEBAR */
+.sidebar{
+width:250px;
+background:#fffaf0;
+padding:20px;
+border-radius:15px;
+border:1px solid #e0d6c8;
+height:fit-content;
+}
+
+.sidebar label{
+display:block;
+margin:10px 0;
+cursor:pointer;
+}
+
+/* RIGHT */
+.content{
+flex:1;
+}
+
+/* CATEGORY */
+.categories{
+display:flex;
+gap:25px;
+margin-bottom:30px;
+font-weight:bold;
+}
+
+.categories span{
+cursor:pointer;
+color:#8d6e63;
+}
+
+.categories span.active{
+color:#4e342e;
+border-bottom:2px solid #ffcc80;
+padding-bottom:5px;
+}
+
+/* BOOK GRID */
+.books{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+}
+
+.card{
+background:#fffaf0;
+border:1px solid #bcaaa4;
+border-radius:15px;
+padding:15px;
+text-align:center;
+cursor:pointer;
+}
+
+.card img{
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:12px;
+}
+
+.card p{
+font-weight:bold;
+color:#4e342e;
+}
+
+.heart{
+position:absolute;
+top:10px;
+right:15px;
+font-size:22px;
+cursor:pointer;
+}
+
+.card{
+position:relative;
+}
+
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+justify-content:center;
+align-items:center;
+}
+
+.popup-content{
+background:#fff3e0;
+padding:30px;
+border-radius:15px;
+width:300px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.contact-footer{
+background:linear-gradient(45deg,#3e2723,#2d1b18);
+color:white;
+text-align:center;
+padding:30px 20px;
+margin-top:30px;
+}
+
+.contact-box{
+background:#f7f1e6;
+padding:15px 30px;
+border-radius:20px;
+display:inline-block;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+
+
+.contact-btn{
+border:none;
+padding:12px 25px;
+margin:10px;
+border-radius:12px;
+font-size:16px;
+cursor:pointer;
+background:#5d4037;
+color:white;
+transition:0.3s;
+}
+
+.contact-btn:hover{
+transform:scale(1.05);
+}
+
+.whatsapp{
+background:#25D366;
+}
+
+.email{
+background:#D44638;
+}
+
+.copyright{
+margin-top:15px;
+font-size:14px;
+color:#ddd;
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+<div class="logo">KITAP</div>
+
+<div class="menu">
+<a href="index.html">Басты бет</a>
+<a href="books.html">Кітаптар</a>
+<a href="audio.html">Аудио</a>
+<a href="video.html">Видео</a>
+</div>
+</div>
+
+<div class="header">
+<h1>Барлық кітаптар</h1>
+<div class="search">
+<input type="text" id="search" placeholder="Кітап іздеу...">
+</div>
+</div>
+
+<div class="container">
+<div class="page">
+
+<!-- SIDEBAR FILTER -->
+<div class="sidebar">
+<h3>Жанр</h3>
+
+<label><input type="checkbox" value="классика" class="genre"> Классика</label>
+<label><input type="checkbox" value="балалар" class="genre"> Балалар</label>
+<label><input type="checkbox" value="поэзия" class="genre"> Поэзия</label>
+<label><input type="checkbox" value="тарих" class="genre"> Тарих</label>
+
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+<div class="categories">
+<span class="active" data-filter="all">Барлығы</span>
+<span data-filter="жаңа">Жаңа</span>
+<span data-filter="көп">Көп оқылған</span>
+<span data-filter="ұсынылған">Ұсынылған</span>
+</div>
+
+<div class="books">
+
+<a href="javascript:void(0)">
+<div class="card"
+data-name="Абай жолы"
+data-author="Мұхтар Әуезов"
+data-year="1942"
+data-genre="Классика"
+data-audio="Бар"
+data-rating="4.9"
+data-comment="Қазақ әдебиетінің ең ұлы шығармасы">
+
+<img src="images/abai.jpg">
+<p>Абай жолы</p>
+</div>
+</a>
+
+<a href="javascript:void(0)">
+<div class="card"
+data-name="Көшпенділер"
+data-author="Ілияс Есенберлин"
+data-year="1969"
+data-genre="Тарих"
+data-audio="Бар"
+data-rating="4.8"
+data-comment="Қазақ хандығы туралы тарихи шығарма">
+
+<img src="images/koshpendiler.jpg">
+<p>Көшпенділер</p>
+</div>
+</a>
+
+
+<a href="javascript:void(0)">
+<div class="card"
+data-name="Менің атым Қожа"
+data-author="Бердібек Соқпақбаев"
+data-year="1957"
+data-genre="Балалар"
+data-audio="Бар"
+data-rating="4.7"
+data-comment="Балалар әдебиетінің классикасы">
+
+<img src="images/kozha.jpg">
+<p>Менің атым Қожа</p>
+</div>
+</a>
+
+
+<a href="javascript:void(0)">
+<div class="card"
+data-name="Қан мен тер"
+data-author="Әбдіжәміл Нұрпейісов"
+data-year="1961"
+data-genre="Тарих"
+data-audio="Жоқ"
+data-rating="4.6"
+data-comment="Арал өңірінің өмірі туралы шығарма">
+
+<img src="images/kan_men_ter.jpg">
+<p>Қан мен тер</p>
+</div>
+</a>
+
+
+<a href="javascript:void(0)">
+<div class="card"
+data-name="Ұлпан"
+data-author="Ғабит Мүсірепов"
+data-year="1974"
+data-genre="Классика"
+data-audio="Бар"
+data-rating="4.5"
+data-comment="Қазақ әйелінің бейнесі">
+
+<img src="images/ulpan.jpg">
+<p>Ұлпан</p>
+</div>
+</a>
+
+
+<a href="javascript:void(0)">
+<div class="card"
+data-name="Ақбілек"
+data-author="Жүсіпбек Аймауытов"
+data-year="1927"
+data-genre="Поэзия"
+data-audio="Жоқ"
+data-rating="4.4"
+data-comment="Қазақ прозасының маңызды шығармасы">
+
+<img src="images/akbilek.jpg">
+<p>Ақбілек</p>
+</div>
+</a>
+
+
+<a href="javascript:void(0)">
+<div class="card"
+data-name="Ертегілер әлемі"
+data-author="Халық ауыз әдебиеті"
+data-year="Әртүрлі"
+data-genre="Балалар"
+data-audio="Бар"
+data-rating="4.3"
+data-comment="Балаларға арналған ертегілер">
+
+<img src="images/ertegiler.jpg">
+<p>Ертегілер әлемі</p>
+</div>
+</a>
+
+<a href="javascript:void(0)">
+<div class="card"
+data-name="Қыз Жібек"
+data-author="Халық эпосы"
+data-year="Ежелгі"
+data-genre="Поэзия"
+data-audio="Бар"
+data-rating="4.6"
+data-comment="Қазақтың лиро-эпостық жыры">
+
+<img src="images/kyz_zhibek.jpg">
+<p>Қыз Жібек</p>
+</div>
+</a>
+
+
+</div>
+</div>
+</div>
+</div>
+
+<script>
+
+
+
+/* SEARCH */
+document.getElementById("search").addEventListener("keyup", applyFilters);
+
+/* CATEGORY CLICK */
+document.querySelectorAll(".categories span").forEach(btn=>{
+btn.onclick = () => {
+
+document.querySelectorAll(".categories span")
+.forEach(b=>b.classList.remove("active"));
+
+btn.classList.add("active");
+
+applyFilters();
+
+};
+});
+
+/* GENRE CHECKBOX */
+document.querySelectorAll(".genre").forEach(ch=>{
+ch.addEventListener("change", applyFilters);
+});
+
+
+/* MAIN FILTER FUNCTION */
+function applyFilters(){
+
+let searchValue = document.getElementById("search").value.toLowerCase();
+
+let activeCategory = document.querySelector(".categories .active").dataset.filter;
+
+let selectedGenres = [];
+document.querySelectorAll(".genre:checked").forEach(ch=>{
+selectedGenres.push(ch.value.toLowerCase());
+});
+
+document.querySelectorAll(".card").forEach(card=>{
+
+let name = card.dataset.name.toLowerCase();
+let genre = card.dataset.genre.toLowerCase();
+
+/* SEARCH */
+let searchMatch = name.includes(searchValue);
+
+/* GENRE */
+let genreMatch = selectedGenres.length === 0 || selectedGenres.includes(genre);
+
+/* CATEGORY */
+let categoryMatch = true;
+
+if(activeCategory === "жаңа"){
+categoryMatch = card.dataset.year >= 1960;
+}
+
+if(activeCategory === "көп"){
+categoryMatch = card.dataset.rating >= 4.7;
+}
+
+if(activeCategory === "ұсынылған"){
+categoryMatch = card.dataset.audio === "Бар";
+}
+
+/* SHOW / HIDE */
+card.parentElement.style.display =
+(searchMatch && genreMatch && categoryMatch)
+? "block" : "none";
+
+});
+
+}
+
+
+/* POPUP */
+document.querySelectorAll(".card").forEach(card=>{
+
+card.onclick = () => {
+
+document.getElementById("popup").style.display="flex";
+
+document.getElementById("popupTitle").innerText = card.dataset.name;
+document.getElementById("popupAuthor").innerText = "📖 Автор: " + card.dataset.author;
+document.getElementById("popupYear").innerText = "📅 Жылы: " + card.dataset.year;
+document.getElementById("popupGenre").innerText = "📚 Жанр: " + card.dataset.genre;
+document.getElementById("popupAudio").innerText = "🎧 Аудио: " + card.dataset.audio;
+document.getElementById("popupRating").innerText = "⭐ Рейтинг: " + card.dataset.rating;
+document.getElementById("popupComment").innerText = "💬 Пікір: " + card.dataset.comment;
+
+};
+
+});
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+
+
+
+</script>
+
+<!-- FOOTER -->
+<div class="contact-footer">
+
+<h2>📞 Байланыс</h2>
+
+<div class="contact-box">
+
+<a href="https://wa.me/77478921249" target="_blank">
+<button class="contact-btn whatsapp">WhatsApp</button>
+</a>
+
+<a href="mailto:gulbakhibasova@gmail.com">
+<button class="contact-btn email">Email</button>
+</a>
+
+</div>
+
+<p class="copyright">© 2026 KITAP Platform</p>
+
+</div>
+
+
+</body>
+</html>
+
+</body>
+</html>
+
+
